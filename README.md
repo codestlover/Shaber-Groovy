@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.gif" alt="Shaber" width="220">
+  <img src="./logo.webp" alt="Shaber" width="320">
 </p>
 
 # Shaber-Groovy
