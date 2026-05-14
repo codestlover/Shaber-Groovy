@@ -30,19 +30,45 @@ it rides on `java.net.http.HttpClient` and `java.net.http.WebSocket`.
 
 ## Install
 
-If you already have Gradle:
+### Via JitPack (recommended)
 
-```bash
-gradle build
-gradle publishToMavenLocal     # io.shaber:shaber-groovy:0.0.0
-```
-
-Then:
+In your `build.gradle`:
 
 ```groovy
-dependencies {
-    implementation 'io.shaber:shaber-groovy:0.0.0'
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
+
+dependencies {
+    implementation 'com.github.codestlover:Shaber-Groovy:0.1.0'
+}
+```
+
+Or for Maven:
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependency>
+    <groupId>com.github.codestlover</groupId>
+    <artifactId>Shaber-Groovy</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
+
+### From source
+
+```bash
+git clone https://github.com/codestlover/Shaber-Groovy
+cd Shaber-Groovy
+gradle build
+gradle publishToMavenLocal
 ```
 
 For one-off scripts, no build step is needed:

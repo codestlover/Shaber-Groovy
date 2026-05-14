@@ -7,6 +7,15 @@ page covers the Groovy side: signatures, what they take, what they return.
 
 ## Setup
 
+Add to `build.gradle`:
+
+```groovy
+repositories { maven { url 'https://jitpack.io' } }
+dependencies { implementation 'com.github.codestlover:Shaber-Groovy:0.1.0' }
+```
+
+Then in code:
+
 ```groovy
 import shaber.ShaberClient
 def c = new ShaberClient()
