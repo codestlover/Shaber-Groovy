@@ -1,0 +1,52 @@
+// Gradle build for the Groovy Shaber client.
+//
+// Build:   gradle build
+// Test:    groovy -cp src/main/groovy examples/demo_http.groovy
+//          groovy -cp src/main/groovy examples/demo_radio.groovy
+//
+// Targets JDK 11+ — uses java.net.http.HttpClient and java.net.http.WebSocket,
+// both shipped with the JDK. No third-party HTTP/WS libraries.
+
+plugins {
+    id 'groovy'
+    id 'maven-publish'
+}
+
+group   = 'io.shaber'
+version = '0.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy:3.0.21'
+    implementation 'org.codehaus.groovy:groovy-json:3.0.21'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src/main/groovy']
+        }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            pom {
+                name = 'Shaber Groovy client'
+                description = 'Groovy client for the Shaber HTTP API and /api/radio WebSocket stream.'
+                licenses { license { name = 'BSD-3-Clause' } }
+            }
+        }
+    }
+}
